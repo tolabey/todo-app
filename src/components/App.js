@@ -8,8 +8,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log('CONSTRUCTOR')
-
     this.state = { name: 'mustafa' }
   }
 
@@ -17,24 +15,11 @@ class App extends React.Component {
 
   render() {
 
-    console.log('APP')
-
 
     return (
       <div>
 
-        <button
-          onClick={() => this.setState({ name: this.state.name + 's'})}
-        >
-          My button
-        </button>
-
-        <div>{ this.state.name} </div>
-
-
-        <Navbar
-          name={this.state.name}
-        />
+        <Navbar/>
 
         <Body />
       </div>
