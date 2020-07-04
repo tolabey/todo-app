@@ -12,23 +12,28 @@ export default class Body extends React.PureComponent {
     super(props);
 
     this.state = { todoList: I.List() }
+
+    this.updateList = this.updateList.bind(this);
   }
 
   updateList(todo) {
-    this.setState({ todoList: this.state.todoList.push(todo) });
+    this.setState({ todoList: this.state.todoList.unshift(todo) });
   }
 
   render() {
+    const { todoList } = this.state;
 
     return (
       <div className="body">
 
-        <TodoAdder
+        <div>Size: {this.state.todoList.size}</div>
 
+        <TodoAdder
+          updateList={this.updateList}
         />
 
         <TodoRenderer
-
+          todoList={todoList}
         />
 
       </div>
