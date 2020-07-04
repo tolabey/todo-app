@@ -5,13 +5,6 @@ import Navbar from './navbar/navbar.js';
 import Body from './body/body.js';
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = { name: 'mustafa' }
-  }
-
-
 
   render() {
 
@@ -22,6 +15,7 @@ class App extends React.Component {
         <Navbar/>
 
         <Body />
+
       </div>
     )
   }

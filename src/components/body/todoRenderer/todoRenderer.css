@@ -1,0 +1,8 @@
+.todo-renderer {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-todo {
+    color: darkblue;
+}
