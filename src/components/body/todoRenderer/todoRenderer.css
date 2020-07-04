@@ -5,4 +5,7 @@
 
 .one-todo {
     color: darkblue;
+    border: 1px solid #021;
+    padding: 4px 10px;
+    margin: 10px 0;
 }

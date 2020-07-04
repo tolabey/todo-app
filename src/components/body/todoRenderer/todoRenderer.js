@@ -9,9 +9,16 @@ export default class TodoRenderer extends React.PureComponent {
     return (
       <div className="todo-renderer">
         {
-          this.props.todoList.map((each, index) => {
+          this.props.todoList.map((each) => {
             return (
-              <div key={index} className="one-todo">{each}</div>
+              <div key={each.get('id', Math.random())} className="one-todo">
+                <div>
+                  text: {each.get('text', '-')}
+                </div>
+                <div>
+                  id: {each.get('id', '-')}
+                </div>
+              </div>
             )
           })
         }
