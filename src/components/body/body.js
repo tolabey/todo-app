@@ -11,30 +11,43 @@ export default class Body extends React.PureComponent {
   constructor(props) {
     super(props);
 
-    this.state = { todoList: I.List() }
+    this.state = { todoList: I.List(), isRendererHidden: false };
 
     this.updateList = this.updateList.bind(this);
+    this.toggleHideTodoRenderer = this.toggleHideTodoRenderer.bind(this);
   }
 
   updateList(todo) {
     this.setState({ todoList: this.state.todoList.unshift(todo) });
   }
 
+  toggleHideTodoRenderer() {
+    this.setState({ isRendererHidden: !this.state.isRendererHidden })
+  }
+
   render() {
-    const { todoList } = this.state;
+    const { todoList, isRendererHidden } = this.state;
 
     return (
       <div className="body">
 
-        <div>Size: {this.state.todoList.size}</div>
+        <button onClick={ this.toggleHideTodoRenderer }>{isRendererHidden ? 'Göster' : 'Gizle'}</button>
 
         <TodoAdder
           updateList={this.updateList}
         />
 
-        <TodoRenderer
-          todoList={todoList}
-        />
+        {
+          !isRendererHidden
+            ? (
+              <TodoRenderer
+                todoList={todoList}
+              />
+            )
+            : (
+              <div>{'Todo Listesi Gizlendi'}</div>
+            )
+        }
 
       </div>
     )

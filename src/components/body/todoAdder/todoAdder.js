@@ -25,7 +25,8 @@ export default class TodoAdder extends React.PureComponent {
         <input type="text" onChange={(e) => this.handleTodoText(e.target.value)}/>
 
         <button onClick={
-          () => this.props.updateList(I.fromJS({ id: Math.random(), text: todoText}))}
+          () => this.props.updateList(I.fromJS({ id: Math.random(), text: todoText}))
+        }
         >
           {'EKLE'}
         </button>
