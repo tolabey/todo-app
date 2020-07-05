@@ -13,12 +13,7 @@ export default class Body extends React.PureComponent {
 
     this.state = { todoList: I.List(), isRendererHidden: false };
 
-    this.updateList = this.updateList.bind(this);
     this.toggleHideTodoRenderer = this.toggleHideTodoRenderer.bind(this);
-  }
-
-  updateList(todo) {
-    this.setState({ todoList: this.state.todoList.unshift(todo) });
   }
 
   toggleHideTodoRenderer() {
@@ -33,16 +28,12 @@ export default class Body extends React.PureComponent {
 
         <button onClick={ this.toggleHideTodoRenderer }>{isRendererHidden ? 'Göster' : 'Gizle'}</button>
 
-        <TodoAdder
-          updateList={this.updateList}
-        />
+        <TodoAdder />
 
         {
           !isRendererHidden
             ? (
-              <TodoRenderer
-                todoList={todoList}
-              />
+              <TodoRenderer />
             )
             : (
               <div>{'Todo Listesi Gizlendi'}</div>

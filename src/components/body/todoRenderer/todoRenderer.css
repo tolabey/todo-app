@@ -3,9 +3,13 @@
     flex-direction: column;
 }
 
-.one-todo {
-    color: darkblue;
+.todo-card {
     border: 1px solid #021;
     padding: 4px 10px;
     margin: 10px 0;
+}
+
+.one-todo {
+    color: darkblue;
+
 }

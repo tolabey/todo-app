@@ -1,8 +1,8 @@
 import React from 'react';
 import './todoAdder.css';
-import I from 'immutable';
+import { connect } from "react-redux";
 
-export default class TodoAdder extends React.PureComponent {
+class TodoAdder extends React.PureComponent {
 
   constructor(props) {
     super(props);
@@ -25,7 +25,7 @@ export default class TodoAdder extends React.PureComponent {
         <input type="text" onChange={(e) => this.handleTodoText(e.target.value)}/>
 
         <button onClick={
-          () => this.props.updateList(I.fromJS({ id: Math.random(), text: todoText}))
+          () => this.props.addTodo({ id: Math.random(), text: todoText})
         }
         >
           {'EKLE'}
@@ -35,3 +35,17 @@ export default class TodoAdder extends React.PureComponent {
     )
   }
 }
+
+function mapStateToProps() {
+  return {
+
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addTodo: (todo) => dispatch({type: 'ADD_TODO', data: todo }),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(TodoAdder);

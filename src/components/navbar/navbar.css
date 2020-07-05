@@ -3,7 +3,6 @@
     height: 60px;
     background-color: cadetblue;
     display: flex;
-    justify-content: space-between;
     align-items: center;
 }
 
