@@ -5,8 +5,6 @@ class Test extends PureComponent {
 
   render() {
 
-    console.log('TEST RENDERED', this.props)
-
     return (
       <div className="test">
 

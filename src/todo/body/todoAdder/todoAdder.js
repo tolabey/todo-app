@@ -25,7 +25,7 @@ class TodoAdder extends React.PureComponent {
         <input type="text" onChange={(e) => this.handleTodoText(e.target.value)}/>
 
         <button onClick={
-          () => this.props.addTodo({ id: Math.random(), text: todoText})
+          () => this.props.addTodo({ id: Math.random(), text: todoText })
         }
         >
           {'EKLE'}
@@ -36,7 +36,7 @@ class TodoAdder extends React.PureComponent {
   }
 }
 
-function mapStateToProps() {
+function mapStateToProps(store) {
   return {
 
   }

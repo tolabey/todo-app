@@ -1,0 +1,12 @@
+.app-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 60px;
+    background-color: lightblue;
+}
+
+.app-head--night {
+    background-color: darkgray;
+}

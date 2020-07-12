@@ -7,10 +7,22 @@ import { connect } from 'react-redux';
 // props: list
 class TodoRenderer extends React.PureComponent {
 
+  constructor(props) {
+    super(props);
+
+    this.state = { getRand: Math.random() };
+  }
+
   render() {
 
     return (
       <div className="todo-renderer">
+        <button
+          onClick={() => this.setState({ getRand: Math.random() })}
+        >
+          Reset card
+        </button>
+
         {
           this.props.todoList.map((each, index) => {
             return (
@@ -19,6 +31,7 @@ class TodoRenderer extends React.PureComponent {
                 id={each.get('id', '-')}
                 text={each.get('text', '')}
                 index={index}
+                reset={this.state.getRand}
               />
             )
           })

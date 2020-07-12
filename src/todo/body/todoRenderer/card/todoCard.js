@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import {connect} from "react-redux";
 import I from 'immutable';
 import Test from './Test.js';
-import {Context } from '../../../App.js'
+import {Context } from '../../../TodoContainer.js'
 
 
 export class TodoCard extends PureComponent {
@@ -16,6 +16,13 @@ export class TodoCard extends PureComponent {
 
   toggleClickStatus() {
     this.setState({ clickStatus: !this.state.clickStatus })
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('rest ? ', this.props.reset)
+    if (prevProps.reset !== this.props.reset) {
+      this.setState({ clickStatus: false });
+    }
   }
 
   render() {
