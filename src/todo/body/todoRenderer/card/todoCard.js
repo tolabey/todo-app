@@ -19,7 +19,6 @@ export class TodoCard extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('rest ? ', this.props.reset)
     if (prevProps.reset !== this.props.reset) {
       this.setState({ clickStatus: false });
     }

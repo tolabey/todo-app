@@ -19,9 +19,6 @@ export default function reducer(store = initialStore, action) {
     case 'DELETE_TODO':
       return store.set('todoList', store.get('todoList', I.List()).delete(action.data));
 
-    case 'TOGGLE_IS_TODO_PAGE':
-      return store.set('isTodoPage', !store.get('isTodoPage', true));
-
     case 'SET_USERS':
       return store.set('users', action.data)
 

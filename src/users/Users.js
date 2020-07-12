@@ -10,7 +10,6 @@ class Users extends React.PureComponent {
     this.state = { users: I.Map()};
   }
 
-
   componentDidMount() {
     const { users, setUsers } = this.props;
 
@@ -21,20 +20,19 @@ class Users extends React.PureComponent {
       .catch((err) =>  console.log(err));
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-
-  }
-
   render() {
     const { users } = this.props;
+
+    console.log('Users Render', this.props);
 
     return (
       <div>
         {
-          users.map((each) => {
+          users.map((each, index) => {
             return (
               <div
                 key={each.getIn(['id', 'value'])}
+                onClick={() => this.props.history.push(`/users/${index}`)}
               >
                 {each.getIn(['name', 'first'])}
               </div>
@@ -54,7 +52,7 @@ function mapStateToProps(store) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    setUsers: (users) => dispatch({ type: 'SET_USERS', data: users})
+    setUsers: (users) => dispatch({ type: 'SET_USERS', data: users}),
   }
 }
 

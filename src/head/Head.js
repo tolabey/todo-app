@@ -1,6 +1,6 @@
 import React from 'react';
 import './Head.css';
-import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 class Head extends React.PureComponent {
 
@@ -12,7 +12,7 @@ class Head extends React.PureComponent {
 
   render() {
     const { isNight } = this.state;
-    const { isTodoPage, toggleIsTodoPage } = this.props;
+    const { history } = this.props;
 
     return (
       <div className={`app-head${isNight ? ' app-head--night' : ''}`}>
@@ -26,27 +26,23 @@ class Head extends React.PureComponent {
           >
             {isNight ? 'Night' : 'Day'}
           </button>
+
           <button
-            onClick={() => toggleIsTodoPage()}
+            onClick={() => history && history.push('/todo')}
           >
-            {isTodoPage ? 'Todo' : 'Users'}
+            {'TODO'}
           </button>
+
+          <button
+            onClick={() => history && history.push('/users')}
+          >
+            {'Users'}
+          </button>
+
         </div>
       </div>
     )
   }
 }
 
-function mapStateToProps(store) {
-  return {
-    isTodoPage: store.get('isTodoPage', true),
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    toggleIsTodoPage: () => dispatch({ type: 'TOGGLE_IS_TODO_PAGE'}),
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Head);
+export default withRouter(Head);
